@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayseri 2050 - Modern Startup</title>
+  
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Genel Ayarlar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #2e8b57;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: #2e8b57;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-section .overlay {
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .cta-button {
+      padding: 15px 35px;
+      background: linear-gradient(90deg,#2e8b57,#3cb371);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Us */
+    .about-us {
+      padding: 80px 60px;
+      display: flex;
+      justify-content: center;
+    }
+    .about-container {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .circular-image img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .circular-image img:hover {
+      transform: scale(1.05);
+    }
+    .about-text h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Features */
+    .features {
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .features p {
+      font-size: 18px;
+      margin-bottom: 50px;
+      color: #555;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 30px;
+    }
+    .feature-item {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .feature-item img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+    .feature-item p {
+      font-weight: 600;
+    }
+
+    /* Solution Section */
+    .solution-block {
+      display: flex;
+      gap: 50px;
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: center;
+    }
+    .solution-block.reverse {
+      flex-direction: row-reverse;
+    }
+    .solution-image img {
+      width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .solution-image img:hover {
+      transform: scale(1.03);
+    }
+    .solution-text h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .solution-text p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .team-section h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .team-section h3 {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    .profile-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .profile img:hover {
+      transform: scale(1.1);
+    }
+    .profile p {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: linear-gradient(135deg,#fff8b0,#ffeb99);
+      padding: 30px;
+      border-radius: 20px;
+      width: 300px;
+      transition: all 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .card h2 {
+      margin-bottom: 15px;
+    }
+    .card ul {
+      list-style: none;
+    }
+    .card ul li {
+      margin-bottom: 10px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive */
+    @media(max-width: 900px){
+      .about-container, .solution-block {
+        flex-direction: column;
+        text-align: center;
+      }
+      .solution-image img, .circular-image img {
+        width: 80%;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="logo">Kayseri2050</a>
+    <ul class="nav-links">
+      <li><a href="#hero">Ana Sayfa</a></li>
+      <li><a href="#about">Hakkımızda</a></li>
+      <li><a href="#features">Problemler</a></li>
+      <li><a href="#solutions">Çözümler</a></li>
+      <li><a href="#team">Takım</a></li>
+      <li><a href="#pricing">Paketler</a></li>
+      <li><a href="#faq">SSS</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Kayseri 2050</h1>
+      <p>Geleceğin şehirlerini yapay zekâ ve sürdürülebilir çözümlerle tasarlıyoruz.</p>
+      <button class="cta-button">Projeyi Keşfet</button>
+    </div>
+  </header>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-us">
+    <div class="about-container">
+      <div class="circular-image">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" alt="Hakkımızda">
+      </div>
+      <div class="about-text">
+        <h2>Hakkımızda</h2>
+        <p>Kayseri 2050 ekibi, şehirlerin daha sürdürülebilir ve akıllı olmasını sağlamak için çalışıyor. Yapay zekâ destekli çözümlerimizle trafik, enerji ve atık yönetiminde verimliliği artırmayı hedefliyoruz.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Karşılaştığımız Problemler</h2>
+    <p>Tekstil atıkları her yıl milyonlarca ton olarak çevreye zarar veriyor.</p>
+    <div class="grid-container">
+      <div class="feature-item">
+        <img src="https://images.unsplash.com/photo-1560185127-6edfd0f4b6a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" alt="Problem 1">
+        <p>Yüksek atık miktarı</p>
+      </div>
+      <div class="feature-item">
+        <img src="https://images.unsplash.com/photo-1581092795362-12d7fa3d4043?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" alt="Problem 2">
+        <p>Enerji ve su israfı</p>
+      </div>
+      <div class="feature-item">
+        <img src="https://images.unsplash.com/photo-1591012911205-5f2b2fa2b0f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" alt="Problem 3">
+        <p>Çevresel kirlilik</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="solutions" class="solution-block">
+    <div class="solution-image">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Çözüm 1">
+    </div>
+    <div class="solution-text">
+      <h2>Atıkları Toplama ve Sınıflandırma</h2>
+      <p>Kullanılmış tekstil ürünlerini topluyoruz ve yapay zekâ ile kumaş türlerine göre sınıflandırıyoruz.</p>
+    </div>
+  </section>
+
+  <section class="solution-block reverse">
+    <div class="solution-image">
+      <img src="https://images.unsplash.com/photo-1600185363973-07a0a7b2084e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Çözüm 2">
+    </div>
+    <div class="solution-text">
+      <h2>Yeniden Tasarım ve Üretim</h2>
+      <p>Sınıflandırılmış kumaşları tasarımcılar ile yeniden ürün haline getiriyoruz.</p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="team-section">
+    <h2>Takımımız</h2>
+    <h3>Geleceğin şehirlerini tasarlayan uzman ekip</h3>
+    <div class="profile-grid">
+      <div class="profile"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali"><p>Ali</p></div>
+      <div class="profile"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ayşe"><p>Ayşe</p></div>
+      <div class="profile"><img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Mehmet"><p>Mehmet</p></div>
+      <div class="profile"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Elif"><p>Elif</p></div>
+      <div class="profile"><img src="https://randomuser.me/api/portraits/women/66.jpg" alt="Fatma"><p>Fatma</p></div>
+      <div class="profile"><img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Can"><p>Can</p></div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <h2>Hizmet Paketlerimiz</h2>
+    <h3>İhtiyacınıza uygun çözümler</h3>
+    <div class="card-container">
+      <div class="card">
+        <h2>Başlangıç</h2>
+        <ul>
+          <li>Temel analiz</li>
+          <li>Veri toplama</li>
+          <li>Raporlama</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Profesyonel</h2>
+        <ul>
+          <li>İleri analiz</li>
+          <li>Öneri sistemi</li>
+          <li>API entegrasyonu</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Kurumsal</h2>
+        <ul>
+          <li>Özel çözümler</li>
+          <li>Destek ekibi</li>
+          <li>Raporlama ve eğitim</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <h2>Sık Sorulan Sorular</h2>
+    <h3>Projemiz hakkında merak edilenler</h3>
+    <div class="faq-container">
+      <div class="faq-item">
+        <h3>Proje hangi sorunu çözüyor?</h3>
+        <p>Tekstil atıkları ve sürdürülebilir şehir yönetimi konusunda çözüm sunuyor.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Yapay zekâ nasıl kullanılıyor?</h3>
+        <p>AI, veri analizi ve öneri sistemleri için kullanılıyor.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Projeye nasıl katılabilirim?</h3>
+        <p>Web sitemizde yer alan iletişim formunu doldurabilirsiniz.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html><!-- Contact Us Section -->
+<section class="contact-section">
+  <div class="contact-container">
+    <!-- Left: Text -->
+    <div class="contact-text">
+      <h2>İletişim</h2>
+      <p>Projelerimiz, fikirlerimiz veya işbirlikleri hakkında bizimle iletişime geçebilirsiniz. Sizi dinlemekten mutluluk duyarız!</p>
+    </div>
+
+    <!-- Right: Map -->
+    <div class="contact-map">
+      <!-- Google Maps iframe placeholder -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.2645670569233!2d35.48733651512354!3d38.72225217959615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152bd5cf0b504dd3%3A0x426e09de2278d8c0!2sKayseri%2C%20Turkey!5e0!3m2!1sen!2sus!4v1696395271180!5m2!1sen!2sus" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <ul>
+      <li><a href="#hero">Ana Sayfa</a></li>
+      <li><a href="#about">Hakkımızda</a></li>
+      <li><a href="#features">Problemler</a></li>
+      <li><a href="#solutions">Çözümler</a></li>
+      <li><a href="#team">Takım</a></li>
+      <li><a href="#pricing">Paketler</a></li>
+      <li><a href="#faq">SSS</a></li>
+    </ul>
+  </div>
+  <p class="copyright">© 2025 Kayseri2050. Tüm hakları saklıdır.</p>
+</footer>
+
+<style>
+/* Contact Section */
+.contact-section {
+  padding: 80px 50px;
+  background: #f2f2f2;
+}
+.contact-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.contact-text {
+  flex: 1;
+  min-width: 280px;
+}
+.contact-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.contact-text p {
+  font-size: 18px;
+  color: #555;
+}
+.contact-map {
+  flex: 1;
+  min-width: 280px;
+}
+.contact-map iframe {
+  width: 100%;
+  border-radius: 15px;
+  height: 300px;
+}
+
+/* Footer */
+.site-footer {
+  background: #2e8b57;
+  color: #fff;
+  padding: 40px 50px 20px;
+}
+.site-footer .footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+.site-footer .footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.site-footer .footer-links a:hover {
+  text-decoration: underline;
+}
+.site-footer p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .contact-container { flex-direction: column; text-align:center; }
+  .contact-map iframe { height: 250px; }
+  .site-footer .footer-links ul { justify-content: center; }
+}
+</style>
